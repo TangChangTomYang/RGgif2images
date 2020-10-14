@@ -42,8 +42,11 @@
         
         NSDictionary *gifDic = CFDictionaryGetValue(propertyDic, kCGImagePropertyGIFDictionary);
         totalDuration += [gifDic[@"DelayTime"] floatValue];
+        CFRelease(propertyDic);
+        CFRelease(imgRef);
         
     }
+    CFRelease(imgSourceRef);
     
     
     NSLog(@"totalDuration : %f",totalDuration);
